@@ -18,6 +18,7 @@ public class KeyPrompts : MonoBehaviour {
     private void Start()
     {
         leftMousePrompt_s = leftMousePrompt;
+        EndPrompt(Prompt.Left_Mouse);
     }
 
     public static void StartPrompt(Prompt prompt)

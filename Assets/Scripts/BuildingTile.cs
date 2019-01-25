@@ -7,13 +7,14 @@ public class BuildingTile : MonoBehaviour {
     MeshRenderer mesh;
     Camera cam;
     GeneralCommands buildStuff;
+    static BuildingTile lastTileLookedAt;
 
 	// Use this for initialization
 	void Start () {
         mesh = GetComponent<MeshRenderer>();
         cam = Camera.main;
         buildStuff = FindObjectOfType<GeneralCommands>();
-
+        //KeyPrompts.EndPrompt(KeyPrompts.Prompt.Left_Mouse);
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class BuildingTile : MonoBehaviour {
             if (hit.transform == transform)
             {
                 on = true;
+                lastTileLookedAt = this;
             }
         }
         if (on)
@@ -35,13 +37,14 @@ public class BuildingTile : MonoBehaviour {
             if (Input.GetMouseButtonDown(0))
             {
                 buildStuff.OpenBuildMenu(transform);
-
+                
             }
         }
         else
         {
             mesh.enabled = false;
-            KeyPrompts.EndPrompt(KeyPrompts.Prompt.Left_Mouse);
+            if (lastTileLookedAt == this)
+                KeyPrompts.EndPrompt(KeyPrompts.Prompt.Left_Mouse);
         }
     }
 

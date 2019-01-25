@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour {
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 6))
             {
                 //if hitting a breakable like a tree or rock
-                BreakableResource thing = hit.transform.root.GetComponent<BreakableResource>();
+                BreakableResource thing = hit.transform.GetComponentInParent<BreakableResource>();
                 if (thing)
                 {
                     thing.TakeDamage(1);
@@ -59,7 +59,7 @@ public class Inventory : MonoBehaviour {
                     break;
                 }
             }
-            Destroy(other.gameObject);
+            Destroy(other.transform.root.gameObject);
         }
     }
 

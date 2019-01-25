@@ -24,9 +24,13 @@ public class BuildButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Start ()
     {
         tooltipText.text = "Requires: ";
+        int i = 0;
         foreach (Requirement req in requirements)
         {
+            if (i > 0)
+                tooltipText.text += ", ";
             tooltipText.text += req.item.itemName + " x" + req.amountRequired.ToString();
+            i++;
         }
         button = GetComponent<Button>();
 	}

@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour {
 
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 6))
             {
-                BreakableResource thing = hit.transform.GetComponent<BreakableResource>();
+                BreakableResource thing = hit.transform.root.GetComponent<BreakableResource>();
                 if (thing)
                 {
                     thing.TakeDamage(1);

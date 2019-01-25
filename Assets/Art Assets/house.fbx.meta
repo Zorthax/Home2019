@@ -4,11 +4,17 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Door
     400000: //RootNode
+    400002: Door
     2100000: lambert1
     2300000: //RootNode
+    2300002: Door
     3300000: //RootNode
+    3300002: Door
     4300000: pCube1
+    4300002: polySurface3
+    4300004: Door
   externalObjects: {}
   materials:
     importMaterials: 1

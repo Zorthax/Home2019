@@ -6,12 +6,15 @@ public class BuildingTile : MonoBehaviour {
 
     MeshRenderer mesh;
     Camera cam;
+    GeneralCommands buildStuff;
 
 	// Use this for initialization
 	void Start () {
         mesh = GetComponent<MeshRenderer>();
         cam = Camera.main;
-	}
+        buildStuff = FindObjectOfType<GeneralCommands>();
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,6 +32,11 @@ public class BuildingTile : MonoBehaviour {
         {
             mesh.enabled = true;
             KeyPrompts.StartPrompt(KeyPrompts.Prompt.Left_Mouse);
+            if (Input.GetMouseButtonDown(0))
+            {
+                buildStuff.OpenBuildMenu(transform);
+
+            }
         }
         else
         {

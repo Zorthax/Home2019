@@ -7,7 +7,7 @@ public class GeneralCommands : MonoBehaviour {
 
     public GameObject buildMenu;
     public RigidbodyFirstPersonController fps;
-    Transform buildTile;
+    public static Transform buildTile;
 
 
 	// Use this for initialization
@@ -45,5 +45,10 @@ public class GeneralCommands : MonoBehaviour {
         buildTile.GetComponent<BuildingTile>().placedObject = Instantiate(buildButton.thingToBuild, buildTile.position, buildTile.rotation) as GameObject;
         CloseBuildMenu();
         KeyPrompts.EndPrompt(KeyPrompts.Prompt.Left_Mouse);
+    }
+
+    public void RotateTile(float angle)
+    {
+        buildTile.Rotate(new Vector3(0, angle, 0));
     }
 }

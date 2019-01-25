@@ -613,9 +613,8 @@ MonoBehaviour:
         m_MethodName: BuildThing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1270329647441804, guid: 254e31959cf97b54da772357005a8879,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 114963260904015828}
+          m_ObjectArgumentAssemblyTypeName: BuildButton, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -662,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOver: 0
-  thingToBuild: {fileID: 1270329647441804, guid: 254e31959cf97b54da772357005a8879,
+  thingToBuild: {fileID: 1293233123585678, guid: 9bb7f855d6dbabf41aeb11eb1151a283,
     type: 2}
   requirements:
   - item: {fileID: 11400000, guid: 4c7386fbd9c53234b97a7f2f6df8ff2f, type: 2}
@@ -671,6 +670,7 @@ MonoBehaviour:
     amountRequired: 8
   tooltip: {fileID: 1354967863451038}
   tooltipText: {fileID: 114756736915543612}
+  transparentMaterial: {fileID: 2100000, guid: f358dc33f9218da40829c73a26b8aa40, type: 2}
 --- !u!114 &114316446528356184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -891,6 +891,7 @@ MonoBehaviour:
     amountRequired: 6
   tooltip: {fileID: 1347452822495862}
   tooltipText: {fileID: 114141987924572484}
+  transparentMaterial: {fileID: 2100000, guid: f358dc33f9218da40829c73a26b8aa40, type: 2}
 --- !u!114 &114605125377876618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1160,9 +1161,8 @@ MonoBehaviour:
         m_MethodName: BuildThing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1293233123585678, guid: 9bb7f855d6dbabf41aeb11eb1151a283,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 114299554209971314}
+          m_ObjectArgumentAssemblyTypeName: BuildButton, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1224,9 +1224,8 @@ MonoBehaviour:
         m_MethodName: BuildThing
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1608412396320750, guid: ffd86048fcca9d8479380105caa4f561,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 114542462246569728}
+          m_ObjectArgumentAssemblyTypeName: BuildButton, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1315,6 +1314,7 @@ MonoBehaviour:
     amountRequired: 4
   tooltip: {fileID: 1697095377773700}
   tooltipText: {fileID: 114090562467006142}
+  transparentMaterial: {fileID: 2100000, guid: f358dc33f9218da40829c73a26b8aa40, type: 2}
 --- !u!222 &222011159408477412
 CanvasRenderer:
   m_ObjectHideFlags: 1

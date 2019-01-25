@@ -8,6 +8,10 @@ public class BuildingTile : MonoBehaviour {
     Camera cam;
     GeneralCommands buildStuff;
     static BuildingTile lastTileLookedAt;
+    [HideInInspector]
+    public GameObject placedObject;
+    [HideInInspector]
+    public BuildButton.Requirement[] requirements;
 
 	// Use this for initialization
 	void Start () {
@@ -33,18 +37,38 @@ public class BuildingTile : MonoBehaviour {
         if (on)
         {
             mesh.enabled = true;
-            KeyPrompts.StartPrompt(KeyPrompts.Prompt.Left_Mouse);
-            if (Input.GetMouseButtonDown(0))
+            if (placedObject == null)
             {
-                buildStuff.OpenBuildMenu(transform);
-                
+                KeyPrompts.StartPrompt(KeyPrompts.Prompt.Left_Mouse);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    buildStuff.OpenBuildMenu(transform);
+
+                }
             }
+            else
+            {
+                KeyPrompts.StartPrompt(KeyPrompts.Prompt.Right_Mouse);
+                if (Input.GetMouseButtonDown(1))
+                {
+                    Inventory.RegainResources(requirements);
+                    KeyPrompts.EndPrompt(KeyPrompts.Prompt.Right_Mouse);
+                    Destroy(placedObject);
+                }
+            }
+
+            
         }
         else
         {
             mesh.enabled = false;
             if (lastTileLookedAt == this)
-                KeyPrompts.EndPrompt(KeyPrompts.Prompt.Left_Mouse);
+            {
+                if (placedObject == null)
+                    KeyPrompts.EndPrompt(KeyPrompts.Prompt.Left_Mouse);
+                else
+                    KeyPrompts.EndPrompt(KeyPrompts.Prompt.Right_Mouse);
+            }
         }
     }
 

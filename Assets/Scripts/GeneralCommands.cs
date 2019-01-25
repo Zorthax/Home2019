@@ -37,10 +37,12 @@ public class GeneralCommands : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void BuildThing(GameObject whatToBuild)
+    public void BuildThing(BuildButton buildButton)
     {
-        Instantiate(whatToBuild, buildTile.position, buildTile.rotation);
-        Destroy(buildTile.gameObject);
+        //Destroy(buildTile.gameObject);
+        Debug.Log("Did it build?");
+        buildTile.GetComponent<BuildingTile>().requirements = buildButton.requirements;
+        buildTile.GetComponent<BuildingTile>().placedObject = Instantiate(buildButton.thingToBuild, buildTile.position, buildTile.rotation) as GameObject;
         CloseBuildMenu();
         KeyPrompts.EndPrompt(KeyPrompts.Prompt.Left_Mouse);
     }

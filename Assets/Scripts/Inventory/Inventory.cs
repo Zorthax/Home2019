@@ -108,4 +108,19 @@ public class Inventory : MonoBehaviour {
         }
         return true;
     }
+
+    public static void RegainResources(BuildButton.Requirement[] requirements)
+    {
+        foreach (BuildButton.Requirement req in requirements)
+        {
+            foreach (InventorySlot slot in slots_s)
+            {
+                if (slot.itemName == req.item.itemName)
+                {
+                    slot.count += req.amountRequired;
+                }
+
+            }
+        }
+    }
 }

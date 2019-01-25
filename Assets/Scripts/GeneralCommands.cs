@@ -12,7 +12,7 @@ public class GeneralCommands : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        CloseBuildMenu();
 	}
 	
 	// Update is called once per frame

@@ -82,13 +82,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public MovementSettings movementSettings = new MovementSettings();
         public MouseLook mouseLook = new MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();
+        public GameObject underwaterOverlay;
 
 
         private Rigidbody m_RigidBody;
         private CapsuleCollider m_Capsule;
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
-        private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
+        private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded, inWater;
 
 
         public Vector3 Velocity
@@ -135,6 +136,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Jump = true;
             }
+
+            underwaterOverlay.SetActive(inWater);
         }
 
 
@@ -185,8 +188,31 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
             m_Jump = false;
+            if (inWater)
+                m_RigidBody.AddForce(Vector3.up * 4f, ForceMode.Force);
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.transform.tag == "Water")
+            {
+                if (other.transform.position.y > transform.position.y)
+                    inWater = true;
+                else
+                    inWater = false;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.transform.tag == "Water")
+            {
+                if (other.transform.position.y > transform.position.y)
+                    inWater = true;
+                else
+                    inWater = false;
+            }
+        }
 
         private float SlopeMultiplier()
         {
@@ -257,10 +283,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_IsGrounded = false;
                 m_GroundContactNormal = Vector3.up;
             }
+            if (inWater)
+                m_IsGrounded = true;
             if (!m_PreviouslyGrounded && m_IsGrounded && m_Jumping)
             {
                 m_Jumping = false;
             }
+            
         }
     }
 }

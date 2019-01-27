@@ -14,6 +14,7 @@ public class BuildButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Material transparentMaterial;
     Button button;
     GameObject ghostObject;
+    Vector3 baseScale;
 
     [System.Serializable]
     public class Requirement
@@ -48,7 +49,11 @@ public class BuildButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         tooltip.SetActive(isOver);
         button.interactable = Inventory.CanItBuild(requirements);
         if (ghostObject)
-            ghostObject.transform.rotation = GeneralCommands.buildTile.rotation;
+        {
+            ghostObject.transform.rotation = GeneralCommands.buildTile.transform.rotation;
+            ghostObject.transform.localScale = baseScale * GeneralCommands.buildTile.scaleOffset;
+            ghostObject.transform.position = GeneralCommands.buildTile.transform.position + GeneralCommands.buildTile.positionOffset;
+        }
 
     }
 
@@ -57,7 +62,8 @@ public class BuildButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         isOver = true;
-        ghostObject  = Instantiate(thingToBuild, GeneralCommands.buildTile.position, GeneralCommands.buildTile.rotation) as GameObject;
+        ghostObject  = Instantiate(thingToBuild, GeneralCommands.buildTile.transform.position, GeneralCommands.buildTile.transform.rotation) as GameObject;
+        baseScale = ghostObject.transform.localScale;
         foreach (Renderer rend in ghostObject.GetComponentsInChildren<Renderer>())
             rend.material = transparentMaterial;
     }

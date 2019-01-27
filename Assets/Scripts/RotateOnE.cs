@@ -26,7 +26,7 @@ public class RotateOnE : MonoBehaviour {
             if (hit.transform == transform)
             {
                 KeyPrompts.StartPrompt(KeyPrompts.Prompt.E);
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetButtonDown("Rotate Left"))
                 {
                     index++;
                     if (index >= rotations.Length)

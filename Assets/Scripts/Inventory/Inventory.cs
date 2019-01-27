@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour {
 		if (Vector3.Distance(pick.localEulerAngles, idleRotation) < 15f)
         {
             //swinging = false;
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetButton("Fire1"))
             {
                 swinging = true;
             }

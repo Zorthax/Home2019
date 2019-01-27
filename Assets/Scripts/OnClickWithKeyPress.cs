@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OnClickWithKeyPress : MonoBehaviour {
 
     Button button;
-    public KeyCode key;
+    public string buttonName;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +16,7 @@ public class OnClickWithKeyPress : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKeyDown(key))
+        if (Input.GetButtonDown(buttonName))
             button.onClick.Invoke();
 	}
 }

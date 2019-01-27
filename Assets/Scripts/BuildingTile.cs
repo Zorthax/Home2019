@@ -12,9 +12,13 @@ public class BuildingTile : MonoBehaviour {
     public GameObject placedObject;
     [HideInInspector]
     public BuildButton.Requirement[] requirements;
+    [HideInInspector]
+    public float scaleOffset = 1;
+    [HideInInspector]
+    public Vector3 positionOffset = Vector3.zero;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         mesh = GetComponent<MeshRenderer>();
         cam = Camera.main;
         buildStuff = FindObjectOfType<GeneralCommands>();
@@ -40,7 +44,7 @@ public class BuildingTile : MonoBehaviour {
             if (placedObject == null)
             {
                 KeyPrompts.StartPrompt(KeyPrompts.Prompt.Left_Mouse);
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetButtonDown("Fire1"))
                 {
                     buildStuff.OpenBuildMenu(transform);
 
@@ -49,7 +53,7 @@ public class BuildingTile : MonoBehaviour {
             else
             {
                 KeyPrompts.StartPrompt(KeyPrompts.Prompt.Right_Mouse);
-                if (Input.GetMouseButtonDown(1))
+                if (Input.GetButtonDown("Fire2"))
                 {
                     Inventory.RegainResources(requirements);
                     KeyPrompts.EndPrompt(KeyPrompts.Prompt.Right_Mouse);

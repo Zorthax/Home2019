@@ -23,13 +23,14 @@ GameObject:
   - component: {fileID: 136343006552236000}
   - component: {fileID: 114107477531957288}
   - component: {fileID: 114774374199352584}
+  - component: {fileID: 114152542453958066}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1222808250961836
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +355,27 @@ MonoBehaviour:
     airControl: 1
     shellOffset: 0
   underwaterOverlay: {fileID: 0}
+--- !u!114 &114152542453958066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1067864826610916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd829def6a07eb4d95555ea1d3a6ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnOff:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1067864826610916}
+  turnOn:
+  - {fileID: 0}
+  inputButton: Cancel
 --- !u!114 &114774374199352584
 MonoBehaviour:
   m_ObjectHideFlags: 1

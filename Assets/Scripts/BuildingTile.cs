@@ -53,6 +53,7 @@ public class BuildingTile : MonoBehaviour {
                 {
                     Inventory.RegainResources(requirements);
                     KeyPrompts.EndPrompt(KeyPrompts.Prompt.Right_Mouse);
+                    KeyPrompts.EndPrompt(KeyPrompts.Prompt.Left_Mouse);
                     Destroy(placedObject);
                 }
             }
@@ -64,9 +65,7 @@ public class BuildingTile : MonoBehaviour {
             mesh.enabled = false;
             if (lastTileLookedAt == this)
             {
-                if (placedObject == null)
                     KeyPrompts.EndPrompt(KeyPrompts.Prompt.Left_Mouse);
-                else
                     KeyPrompts.EndPrompt(KeyPrompts.Prompt.Right_Mouse);
             }
         }

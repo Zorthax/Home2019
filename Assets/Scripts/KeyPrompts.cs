@@ -6,9 +6,11 @@ public class KeyPrompts : MonoBehaviour {
 
     public GameObject leftMousePrompt;
     public GameObject rightMousePrompt;
+    public GameObject ePrompt;
 
     static GameObject leftMousePrompt_s;
     static GameObject rightMousePrompt_s;
+    static GameObject ePrompt_s;
 
 
     public enum Prompt
@@ -23,8 +25,10 @@ public class KeyPrompts : MonoBehaviour {
     {
         leftMousePrompt_s = leftMousePrompt;
         rightMousePrompt_s = rightMousePrompt;
+        ePrompt_s = ePrompt;
         EndPrompt(Prompt.Left_Mouse);
         EndPrompt(Prompt.Right_Mouse);
+        EndPrompt(Prompt.E);
     }
 
     public static void StartPrompt(Prompt prompt)
@@ -36,6 +40,9 @@ public class KeyPrompts : MonoBehaviour {
                 break;
             case Prompt.Right_Mouse:
                 rightMousePrompt_s.SetActive(true);
+                break;
+            case Prompt.E:
+                ePrompt_s.SetActive(true);
                 break;
 
         }
@@ -51,7 +58,9 @@ public class KeyPrompts : MonoBehaviour {
             case Prompt.Right_Mouse:
                 rightMousePrompt_s.SetActive(false);
                 break;
-
+            case Prompt.E:
+                ePrompt_s.SetActive(false);
+                break;
         }
     }
 }

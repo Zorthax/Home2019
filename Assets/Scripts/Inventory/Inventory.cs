@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour {
                 if (thing)
                 {
                     thing.TakeDamage(1);
+                    Destroy(Instantiate(thing.particleEffect, hit.point + Vector3.down * 0.2f, Quaternion.identity) as GameObject, 2);
                 }
             }
         }

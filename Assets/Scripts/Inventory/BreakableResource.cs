@@ -8,6 +8,7 @@ public class BreakableResource : MonoBehaviour {
     int health;
     public GameObject dropOnBreak;
     public int dropCount;
+    public GameObject particleEffect;
 
 	// Use this for initialization
 	void Start () {

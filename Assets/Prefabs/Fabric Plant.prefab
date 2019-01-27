@@ -830,6 +830,8 @@ MonoBehaviour:
   dropOnBreak: {fileID: 1902262650487324, guid: 441d3b89bc49ab3499a5f1a7c37f3add,
     type: 2}
   dropCount: 6
+  particleEffect: {fileID: 1301291931696306, guid: c69dc8936cce0f84ea84fb5423610b93,
+    type: 2}
 --- !u!114 &114795827567767322
 MonoBehaviour:
   m_ObjectHideFlags: 1

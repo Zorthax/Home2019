@@ -571,3 +571,5 @@ MonoBehaviour:
   dropOnBreak: {fileID: 1665909897764380, guid: 09bddd35b8485cb4ba84c6786e73fe80,
     type: 2}
   dropCount: 3
+  particleEffect: {fileID: 1323424786786458, guid: 019990c1adf31c741b57f499a8f7b890,
+    type: 2}
